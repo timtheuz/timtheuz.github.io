@@ -15,8 +15,8 @@
 
 ### Botschaft 1: Der ChatGPT-Effekt ist messbar
 
-![KI/AI & Daten im Zeitverlauf 2022–2025](plot1_zeitverlauf_ceo_only.png)
-![Penetration CEO vs. AR](plot_penetration_ceo_only_no_ar.png)
+![KI/AI & Daten im Zeitverlauf 2022–2025](assets/plots/plot1_zeitverlauf_ceo_only)
+![Penetration CEO vs. AR](assets/plots/plot_penetration_ceo_only_no_ar.png)
 
 Die KI-Erwähnungen in CEO-Reden lagen 2022 noch bei 0,10 pro 1.000 Wörter und wurden nur von 15% der CEOs der Unternehmen erwähnt. Ende 2022 veränderte sich dann etwas grundlegend. Bis 2025 stieg dieser Wert auf 1,63 und auch die Anzahl von Reden mit Erwähnung von KI stieg auf 65%.
 
@@ -26,7 +26,7 @@ Die Entwicklung bei Stellungnahmen von Aufsichtsratsvorsitzenden spiegelt dabei 
 
 ### Botschaft 2: Daten sind nicht verschwunden — aber verdrängt
 
-![KI/AI vs. Daten/Data — absolute und prozentuale Aufteilung](plot2_ki_vs_daten_ceo_only.png)
+![KI/AI vs. Daten/Data — absolute und prozentuale Aufteilung](assets/plots/plot2_ki_vs_daten_ceo_only.png)
 
 2022 machten Daten-Begriffe 83% aller Nennungen in CEO-Reden aus. KI war eine Randnotiz. Drei Jahre später hat sich das Verhältnis umgekehrt: KI steht für 81% der Nennungen, Daten für 19%.
 
@@ -36,7 +36,7 @@ Das ist in absoluten Zahlen zwar fast eine Stagnation; Daten-Nennungen sinken le
 
 ### Botschaft 3: Wer KI sagt, sagt nicht unbedingt Daten
 
-![Von KI-Erwähnern — wie viele erwähnen auch Daten?](plot_ki_dann_daten_gestapelt.png)
+![Von KI-Erwähnern — wie viele erwähnen auch Daten?](assets/plots/plot_ki_dann_daten_gestapelt.png)
 
 Von den CEOs die 2025 KI erwähnen, sprechen nur 59% auch über Daten — Tendenz fallend. 2022 lag dieser Wert noch bei 80%. Und: Nur 38% aller CEOs erwähnen 2025 in Ihren Reden die Keyword-Gruppen KI und Daten zusammen. Je mehr CEOs über KI sprechen, desto kleiner wird der Anteil der dabei auch die Datenbasis thematisiert. 
 
@@ -44,7 +44,7 @@ Von den CEOs die 2025 KI erwähnen, sprechen nur 59% auch über Daten — Tenden
 
 ### Botschaft 4: Sechs Unternehmen — vier Jahre Schweigen
 
-![Konsistenz-Heatmap](plot_konsistenz_ceo_kombiniert.png)
+![Konsistenz-Heatmap](assets/plots/plot_konsistenz_ceo_kombiniert.png)
 
 Die Konsistenz-Analyse zeigt: Sechs DAX-Unternehmen erwähnten KI in keiner einzigen CEO-Rede zwischen 2022 und 2025 (Beiersdorf, Daimler Truck, MTU, Mercedes, Munich Re, Fresenius Medical Care). Gleichzeitig gibt es eine wachsende Gruppe von Unternehmen, die das Thema seit dem KI-Shift 2022/2023 jedes Jahr adressieren (darunter SAP, Siemens, Infineon). Die Deutsche Telekom ist das einzige Unternehmen, das jedes Jahr KI und Daten zusammen erwähnt. Interessant: Alle aktuellen und ehemaligen Firmen des Siemens Konzerns (u.a. Siemens Energy, Siemens Healthineers, Infineon) erwähnen seit mindestens 2 Jahren konsequent KI in ihren CEO-Reden. 
 
@@ -68,11 +68,7 @@ Die Konsistenz-Analyse zeigt: Sechs DAX-Unternehmen erwähnten KI in keiner einz
 ### Anhang: Weitere Auswertungen
 
 **Verteilung der Nennungshäufigkeit pro Firma & Jahr**
-![Cluster-Verteilung](plot_cluster_verteilung.png)
-
-
-**Konsistenz der Erwähnungen 2022–2025 (CEO)**
-![Konsistenz-Heatmap](plot_konsistenz_ceo_kombiniert.png)
+![Cluster-Verteilung](assets/plots/plot_cluster_verteilung.png)
 
 ---
 
@@ -91,6 +87,7 @@ Die Hauptversammlungen finden zwischen Februar und Juni des jeweiligen Jahres st
 Zusätzlich analysieren wir Reden bzw. Berichte der Aufsichtsratsvorsitzenden. Die dortige Konsistenz und Vollständigkeit der Daten ist wesentlich geringer, wodurch wir mangels Vergleichbarkeit keine ausführlichen Analysen auf diesen Daten zur Verfügung stellen.
 
 **Eignung der Daten**
+
 *Vergleichbarkeit der Formate*: Das Format einer CEO-Rede bei der Hauptversammlung ist für börsennotierte Firmen über Firmengröße, Geschäftsmodell und Branche hinweg vergleichbar und eignet sich folglich gut für größere statistische Auswertungen.
 
 *Bedeutung der Hauptversammlung:* Die Reden auf der Hauptversammlung sind Teil der öffentlichen Kommunikation und decken nicht die umfassenden Bemühungen von Unternehmen zur Verfolgung Ihrer Strategie ab. Dennoch geben sie die Richtung des Unternehmens vor und skizzieren die großen Linien seiner Ausrichtung. Zudem sind diese Reden stets an Investoren gerichtet, die aktuelle Markt- und Technologieentwicklungen und deren Implikationen für Unternehmen betrachten, um deren Potential für Wertsteigerungen zu beurteilen (z.B. durch Kosteneinsparungen oder Umsatzsteigerungen). Systematische Analysen zur Häufigkeit dieser Begriffe in öffentlicher Kommunikation geben Aufschluss darüber, wie zuversichtlich Unternehmen sind, aus KI und Daten eigene Wertsteigerungen zu ziehen.

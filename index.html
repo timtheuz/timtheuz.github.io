@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tim Gumpp — Research</title>
+<meta name="description" content="Wie DAX-CEOs über KI sprechen — und was das über strategische Prioritäten verrät. Analyse von 136 HV-Reden, 2022–2025.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Plausible Analytics — replace 'tgumpp.com' with your domain -->
+<script defer data-domain="tgumpp.com" src="https://plausible.io/js/script.js"></script>
+<style>
+  :root {
+    --ink:       #1a1a18;
+    --ink-soft:  #4a4a46;
+    --ink-muted: #8a8a84;
+    --paper:     #faf9f6;
+    --rule:      #e2e0d8;
+    --accent:    #1a7a4a;
+    --accent-lt: #e8f5ee;
+    --blue:      #1A5F9E;
+    --orange:    #C4622D;
+    --col:       640px;
+    --serif:     'DM Serif Display', Georgia, serif;
+    --sans:      'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 17px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2rem;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 100;
+    opacity: 0; animation: fadeIn .4s .1s forwards;
+  }
+  .nav-name {
+    font-family: var(--serif); font-size: 1rem;
+    color: var(--ink); text-decoration: none;
+    letter-spacing: .01em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: .8rem; font-weight: 400; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--ink-soft);
+    text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── LAYOUT ── */
+  main { padding-top: 56px; }
+
+  section { padding: 5rem 2rem; }
+
+  .container { max-width: var(--col); margin: 0 auto; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: calc(100svh - 56px);
+    display: flex; align-items: center;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0; animation: fadeUp .7s .2s forwards;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: .72rem; font-weight: 500; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--accent-lt);
+    padding: .25rem .75rem; border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2; font-weight: 400;
+    margin-bottom: 1.25rem;
+    letter-spacing: -.01em;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1rem; color: var(--ink-soft);
+    max-width: 480px; margin-bottom: 2.5rem;
+  }
+  .hero-meta {
+    font-size: .8rem; color: var(--ink-muted);
+    letter-spacing: .03em;
+  }
+
+  /* ── STATS ROW ── */
+  .stats {
+    background: var(--ink);
+    color: var(--paper);
+    opacity: 0; animation: fadeUp .6s .5s forwards;
+  }
+  .stats .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .stat {
+    padding: 3rem 2rem;
+    border-right: 1px solid rgba(255,255,255,.1);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    line-height: 1; margin-bottom: .5rem;
+  }
+  .stat-num span { color: #78c49a; }
+  .stat-label {
+    font-size: .82rem; font-weight: 300;
+    color: rgba(255,255,255,.55);
+    line-height: 1.5;
+  }
+
+  /* ── ARTICLE ── */
+  .article { border-bottom: 1px solid var(--rule); }
+
+  .section-label {
+    font-size: .72rem; font-weight: 500; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 3rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--rule);
+  }
+
+  .finding {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s, transform .6s;
+  }
+  .finding.visible { opacity: 1; transform: none; }
+  .finding:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .finding-num {
+    font-size: .72rem; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: .75rem;
+  }
+  .finding h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-weight: 400; line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+  .finding p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    font-size: .95rem;
+  }
+  .finding p:last-of-type { margin-bottom: 0; }
+
+  /* ── FIGURE ── */
+  figure {
+    margin: 2rem 0;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  figure img {
+    width: 100%; height: auto; display: block;
+  }
+  figcaption {
+    padding: .75rem 1rem;
+    font-size: .75rem; color: var(--ink-muted);
+    border-top: 1px solid var(--rule);
+    letter-spacing: .02em;
+  }
+
+  /* ── PULL QUOTE ── */
+  blockquote {
+    border-left: 3px solid var(--accent);
+    padding: .75rem 0 .75rem 1.5rem;
+    margin: 2rem 0;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ── METHOD ── */
+  .method {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 2rem;
+    font-size: .85rem;
+    color: var(--ink-soft);
+    margin-top: 2rem;
+  }
+  .method h3 {
+    font-size: .72rem; font-weight: 500; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+  .method p { margin-bottom: .75rem; }
+  .method p:last-child { margin-bottom: 0; }
+  .method ul { padding-left: 1.2rem; margin-bottom: .75rem; }
+  .method li { margin-bottom: .3rem; }
+  .method a { color: var(--accent); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--accent-lt);
+    border-top: 2px solid var(--accent);
+  }
+  .cta-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 400; margin-bottom: 1rem;
+  }
+  .cta-section p {
+    color: var(--ink-soft);
+    font-size: .95rem;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: .75rem 1.75rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: .85rem; font-weight: 500;
+    letter-spacing: .04em;
+    transition: background .2s, transform .15s;
+  }
+  .cta-btn:hover { background: #145f38; transform: translateY(-1px); }
+  .cta-note {
+    margin-top: 1rem;
+    font-size: .78rem;
+    color: var(--ink-muted);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-name {
+    font-family: var(--serif); font-size: .9rem; color: var(--ink);
+  }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    font-size: .78rem; color: var(--ink-muted);
+    text-decoration: none; letter-spacing: .05em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn  { to { opacity: 1; } }
+  @keyframes fadeUp  { to { opacity: 1; transform: none; } }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .stats .container { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 2rem 1.5rem; }
+    .nav-links { display: none; }
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">Tim Gumpp</a>
+  <div class="nav-links">
+    <a href="#research">Analyse</a>
+    <a href="#method">Methodik</a>
+    <a href="#contact">Kontakt</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">Master Research · Universität Mannheim</div>
+      <h1>Je mehr DAX-CEOs über KI reden,<br><em>desto weniger erwähnen sie Daten.</em></h1>
+      <p class="hero-sub">Analyse von 136 Hauptversammlungsreden der DAX-40-Unternehmen, 2022–2025.</p>
+      <p class="hero-meta">Tim Gumpp &nbsp;·&nbsp; März 2026</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="container">
+      <div class="stat">
+        <div class="stat-num"><span>16×</span></div>
+        <div class="stat-label">mehr KI-Erwähnungen in CEO-Reden<br>2022 → 2025</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">83% <span style="font-size:1.2rem">→ 19%</span></div>
+        <div class="stat-label">Anteil Daten-Nennungen<br>an allen Tech-Begriffen</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span>59%</span></div>
+        <div class="stat-label">der KI-erwähnenden CEOs<br>sprechen 2025 noch über Daten</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE -->
+  <section class="article" id="research">
+    <div class="container">
+
+      <div class="section-label">Befunde</div>
+
+      <div class="finding">
+        <div class="finding-num">Befund 01</div>
+        <h2>Der ChatGPT-Effekt ist messbar</h2>
+        <figure>
+          <img src="assets/plots/plot1_zeitverlauf_ceo_only.png"
+               alt="KI/AI & Daten im Zeitverlauf 2022–2025"
+               loading="lazy">
+          <figcaption>Ø Nennungen pro 1.000 Wörter — CEO-Reden, DAX-40, 2022–2025</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/plots/plot_penetration_ceo_only_no_ar.png"
+               alt="Anteil Firmen mit mind. 1 KI-Nennung"
+               loading="lazy">
+          <figcaption>Anteil der DAX-CEOs mit mind. 1 Nennung je Keyword-Gruppe</figcaption>
+        </figure>
+        <p>Die KI-Erwähnungen in CEO-Reden lagen 2022 noch bei 0,10 pro 1.000 Wörter — nur 15% der CEOs erwähnten das Thema überhaupt. Ende 2022 veränderte sich etwas grundlegend. Bis 2025 stieg dieser Wert auf 1,63; der Anteil der Reden mit KI-Erwähnung auf 65%.</p>
+        <p>Aufsichtsratsvorsitzende folgen demselben Muster mit zeitlicher Verzögerung: 2025 erwähnt nur jeder dritte AR-Vorsitz KI — gegenüber zwei Drittel der CEOs.</p>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">Befund 02</div>
+        <h2>Daten sind nicht verschwunden — aber verdrängt</h2>
+        <figure>
+          <img src="assets/plots/plot2_ki_vs_daten_ceo_only.png"
+               alt="KI vs. Daten — absolute und prozentuale Aufteilung"
+               loading="lazy">
+          <figcaption>Absolute Nennungen und prozentuale Aufteilung — CEO-Reden 2022–2025</figcaption>
+        </figure>
+        <p>2022 machten Daten-Begriffe 83% aller Nennungen in CEO-Reden aus. KI war eine Randnotiz. Drei Jahre später hat sich das Verhältnis umgekehrt: KI steht für 81%, Daten für 19%.</p>
+        <p>In absoluten Zahlen ist das eine Stagnation — Daten-Nennungen sinken leicht von 53 auf 45. Aber relativ zur KI-Rhetorik verliert das Thema Daten seinen Stellenwert in der öffentlichen Kommunikation.</p>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">Befund 03</div>
+        <h2>Wer KI sagt, sagt nicht unbedingt Daten</h2>
+        <figure>
+          <img src="assets/plots/plot_ki_dann_daten_gestapelt.png"
+               alt="Von KI-Erwähnern — wie viele erwähnen auch Daten?"
+               loading="lazy">
+          <figcaption>CEO-Speeches: KI-Erwähner mit und ohne Daten-Erwähnung, 2022–2025</figcaption>
+        </figure>
+        <blockquote>Von den CEOs, die 2025 KI erwähnen, sprechen nur 59% auch über Daten — Tendenz fallend. 2022 lag dieser Wert noch bei 80%.</blockquote>
+        <p>Nur 38% aller CEOs erwähnen 2025 KI und Daten gemeinsam. Je mehr CEOs über KI sprechen, desto kleiner wird der Anteil, der dabei auch die Datenbasis thematisiert.</p>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">Befund 04</div>
+        <h2>Sechs Unternehmen — vier Jahre Schweigen</h2>
+        <figure>
+          <img src="assets/plots/plot_konsistenz_ceo_kombiniert_colors.png"
+               alt="Konsistenz der KI/Daten-Erwähnungen 2022–2025"
+               loading="lazy">
+          <figcaption>Konsistenz der Erwähnungen je Firma — CEO-Reden 2022–2025</figcaption>
+        </figure>
+        <p>Sechs DAX-Unternehmen erwähnten KI in keiner einzigen CEO-Rede zwischen 2022 und 2025. Gleichzeitig adressiert eine wachsende Gruppe — darunter SAP, Siemens, Infineon — das Thema seit dem KI-Shift jedes Jahr. Die Deutsche Telekom ist das einzige Unternehmen, das jedes Jahr KI und Daten zusammen erwähnt.</p>
+        <p>Bemerkenswert: Alle Unternehmen aus dem ehemaligen Siemens-Konzern (Siemens Energy, Siemens Healthineers, Infineon) erwähnen seit mindestens zwei Jahren konsequent KI in ihren CEO-Reden.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" style="border-bottom: 1px solid var(--rule);">
+    <div class="container">
+      <div class="section-label">Methodik</div>
+      <div class="method">
+        <h3>Datenbasis & Vorgehen</h3>
+        <p>Analysiert wurden CEO-Reden der DAX-40-Unternehmen von 2022–2025 (DAX-Zugehörigkeit Stand März 2026). Die Datenbasis umfasst 136 Reden aus 35 Unternehmen.</p>
+        <p><strong>Ausnahmen:</strong></p>
+        <ul>
+          <li>Keine Daten verfügbar: Airbus, Qiagen</li>
+          <li>Kein Transkript verfügbar: Scout24, Zalando, Adidas</li>
+          <li>Unvollständige Daten: Symrise (nur 2022/23), Rheinmetall (nur 2024/25)</li>
+        </ul>
+        <p>Gezählt wurden Erwähnungen der Keyword-Gruppen <em>KI</em> (inkl. Künstliche Intelligenz, AI, Machine Learning, GenAI, LLM) und <em>Daten</em> (inkl. Daten, Data, data-driven), normalisiert auf 1.000 Wörter je Dokument — unabhängig von der Sprache der Rede.</p>
+        <p>Die Analyse ist vollständig reproduzierbar. Code und Methodik stehen auf <a href="https://github.com/timtheuz/dax40-analysis" target="_blank">GitHub</a> bereit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <h2>Ich suche Gesprächspartner</h2>
+      <p>Wie hat der KI-Shift die Auseinandersetzung mit Datenverfügbarkeit in Organisationen verändert — und was passiert intern, das öffentlich nicht sichtbar ist?</p>
+      <p>Wenn du Datenstrategie, Data Governance oder KI-Implementierung in einem größeren Unternehmen verantwortest und 45 Minuten Zeit hast, freue ich mich über eine Nachricht. Teilnehmende erhalten die vollständigen Ergebnisse der Studie.</p>
+      <a class="cta-btn" href="mailto:tgumpp@mail.uni-mannheim.de">Interview anfragen</a>
+      <p class="cta-note">Tim Gumpp · Masterarbeit · Universität Mannheim · tgumpp@mail.uni-mannheim.de</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="footer-name">Tim Gumpp</span>
+  <div class="footer-links">
+    <a href="https://github.com/timtheuz/dax40-analysis" target="_blank">GitHub</a>
+    <a href="mailto:tgumpp@mail.uni-mannheim.de">Kontakt</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered fade-in for findings
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.finding').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
